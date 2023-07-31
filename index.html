@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="./lib/css/bootstrap.css" />
+	</head>
+	<body>
+		<div class="box"></div>
+		<div class="box" id="diger-box"></div>
+		<div id="appDiv">
+			<form id="myForm" @submit.prevent="form" method="get">
+				<div class="container">
+					<div class="bar"></div>
+					<button type="button" class="carpi"></button>
+
+					<div class="row outer">
+						<div class="row inner">
+							<h3>Hesap Oluştur</h3>
+							<div class="col colon">
+								<p>Adınız*</p>
+							</div>
+							<div class="col colon">
+								<input
+									v-model="ad"
+									name="name"
+									id="ad"
+									minlength="2"
+									type="text"
+									class="textbox"
+									required />
+							</div>
+						</div>
+
+						<div class="row inner">
+							<div class="col colon">
+								<p>Soyadınız*</p>
+							</div>
+							<div class="col colon">
+								<input
+									v-model="soyad"
+									type="text"
+									name="soyad"
+									id="soyad"
+									minlength="2"
+									class="textbox"
+									required />
+							</div>
+						</div>
+
+						<div class="row inner">
+							<div class="col colon">
+								<p>E-mail adresiniz*</p>
+							</div>
+							<div class="col colon">
+								<input
+									v-model="eposta"
+									type="email"
+									placeholder="example@susumail.com"
+									class="textbox"
+									name="e mail"
+									required />
+							</div>
+						</div>
+
+						<div class="row inner">
+							<div class="col colon">
+								<p>Doğum tarihiniz*</p>
+							</div>
+							<div class="col colon">
+								<input
+									v-model="dogum"
+									type="date"
+									class="textbox"
+									id="date"
+									name="doğum tarihi"
+									required />
+							</div>
+						</div>
+
+						<div class="row inner">
+							<div class="col colon">
+								<p>Telefon Numaranız*</p>
+							</div>
+							<div class="col colon">
+								<input
+									v-model="telefon"
+									type="tel"
+									placeholder="5xx-xxx-xxxx"
+									maxlength="12"
+									class="textbox"
+									pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+									name="telefon numarası"
+									required />
+							</div>
+						</div>
+
+						<div class="row inner">
+							<div class="col colon">
+								<p>Şehir*</p>
+							</div>
+							<div class="col colon">
+								<select v-model="il" name="şehir" class="textbox" required>
+									<option class="sec" value="" disabled selected>
+										Seçiniz
+									</option>
+									<option value="Adana">Adana</option>
+									<option value="Adıyaman">Adıyaman</option>
+									<option value="Afyonkarahisar">Afyonkarahisar</option>
+									<option value="Ağrı">Ağrı</option>
+									<option value="Aksaray">Aksaray</option>
+									<option value="Amasya">Amasya</option>
+									<option value="Ankara">Ankara</option>
+									<option value="Antalya">Antalya</option>
+									<option value="Ardahan">Ardahan</option>
+									<option value="Artvin">Artvin</option>
+									<option value="Aydın">Aydın</option>
+									<option value="Balıkesir">Balıkesir</option>
+									<option value="Bartın">Bartın</option>
+									<option value="Bayburt">Bayburt</option>
+									<option value="Bilecik">Bilecik</option>
+									<option value="Bingöl">Bingöl</option>
+									<option value="Bitlis">Bitlis</option>
+									<option value="Bolu">Bolu</option>
+									<option value="Burdur">Burdur</option>
+									<option value="Bursa">Bursa</option>
+									<option value="Batman">Batman</option>
+									<option value="Çanakkale">Çanakkale</option>
+									<option value="Çankırı">Çankırı</option>
+									<option value="Çorum">Çorum</option>
+									<option value="Denizli">Denizli</option>
+									<option value="Diyarbakır">Diyarbakır</option>
+									<option value="Düzce">Düzce</option>
+									<option value="Edirne">Edirne</option>
+									<option value="Elazığ">Elazığ</option>
+									<option value="Erzincan">Erzincan</option>
+									<option value="Erzurum">Erzurum</option>
+									<option value="Eskişehir">Eskişehir</option>
+									<option value="Gaziantep">Gaziantep</option>
+									<option value="Giresun">Giresun</option>
+									<option value="Gümüşhane">Gümüşhane</option>
+									<option value="Hakkâri">Hakkâri</option>
+									<option value="Hatay">Hatay</option>
+									<option value="Iğdır">Iğdır</option>
+									<option value="Isparta">Isparta</option>
+									<option value="Mersin">Mersin</option>
+									<option value="İstanbul">İstanbul</option>
+									<option value="İzmir">İzmir</option>
+									<option value="Karabük">Karabük</option>
+									<option value="Karaman">Karaman</option>
+									<option value="Kars">Kars</option>
+									<option value="Kastamonu">Kastamonu</option>
+									<option value="Kayseri">Kayseri</option>
+									<option value="Kırıkkale">Kırıkkale</option>
+									<option value="Kırklareli">Kırklareli</option>
+									<option value="Kırşehir">Kırşehir</option>
+									<option value="Kilis">Kilis</option>
+									<option value="Kocaeli">Kocaeli</option>
+									<option value="Konya">Konya</option>
+									<option value="Kütahya">Kütahya</option>
+									<option value="Malatya">Malatya</option>
+									<option value="Manisa">Manisa</option>
+									<option value="Kahramanmaraş">Kahramanmaraş</option>
+									<option value="Mardin">Mardin</option>
+									<option value="Muğla">Muğla</option>
+									<option value="Muş">Muş</option>
+									<option value="Nevşehir">Nevşehir</option>
+									<option value="Niğde">Niğde</option>
+									<option value="Ordu">Ordu</option>
+									<option value="Osmaniye">Osmaniye</option>
+									<option value="Rize">Rize</option>
+									<option value="Sakarya">Sakarya</option>
+									<option value="Samsun">Samsun</option>
+									<option value="Siirt">Siirt</option>
+									<option value="Sinop">Sinop</option>
+									<option value="Sivas">Sivas</option>
+									<option value="Şırnak">Şırnak</option>
+									<option value="Tekirdağ">Tekirdağ</option>
+									<option value="Tokat">Tokat</option>
+									<option value="Trabzon">Trabzon</option>
+									<option value="Tunceli">Tunceli</option>
+									<option value="Şanlıurfa">Şanlıurfa</option>
+									<option value="Uşak">Uşak</option>
+									<option value="Van">Van</option>
+									<option value="Yalova">Yalova</option>
+									<option value="Yozgat">Yozgat</option>
+									<option value="Zonguldak">Zonguldak</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="row inner">
+							<div class="col colon">
+								<p class="sifre">Şifre*</p>
+							</div>
+							<div class="col colon">
+								<input
+									type="password"
+									name="şifre"
+									pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+									class="textbox"
+									required />
+							</div>
+							<li class="psw">Minimum 8 karakter</li>
+							<li class="psw" id="psw">
+								En az bir büyük-küçük harf ve rakam içermeli
+							</li>
+							<div class="col colon"></div>
+						</div>
+
+						<div class="row inner">
+							<div class="col colon">
+								<p>Şifrenizi tekrar girin*</p>
+							</div>
+							<div class="col colon">
+								<input
+									type="password"
+									class="textbox"
+									pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+									required />
+							</div>
+						</div>
+
+						<div class="row inner">
+							<div class="col colon">
+								<p>Profil Fotoğrafı</p>
+							</div>
+							<button id="img-button" class="textbox" type="button">
+								Dosya seçin
+							</button>
+							<div class="col colon">
+								<input
+									type="file"
+									name="profil fotoğrafı"
+									accept="image/*"
+									id="file"
+									class="textbox" />
+							</div>
+						</div>
+
+						<div class="row inner">
+							<div class="col colon">
+								<p>Cinsiyet*</p>
+							</div>
+							<div class="col colon" id="col-cinsiyet">
+								<label for="kadin" class="kadin-label">Kadın</label>
+								<input
+									v-model="cinsiyet"
+									type="radio"
+									name="cinsiyet"
+									id="kadin"
+									class="textbox"
+									value="Kadın"
+									required />
+								<label for="erkek" class="erkek-label">Erkek</label>
+								<input
+									v-model="cinsiyet"
+									type="radio"
+									name="cinsiyet"
+									id="erkek"
+									class="textbox"
+									value="Erkek"
+									required />
+							</div>
+						</div>
+
+						<div class="row inner">
+							<div class="col colon">
+								<p>Adres</p>
+							</div>
+							<div class="col colon">
+								<textarea
+									v-model="adres"
+									class="textbox"
+									name="adres"
+									cols="22"
+									rows="4"></textarea>
+							</div>
+						</div>
+
+						<div class="row inner">
+							<div class="col colon">
+								<p>Web siteniz</p>
+							</div>
+							<div class="col colon">
+								<input
+									v-model="website"
+									type="url"
+									class="textbox"
+									name="web sitesi" />
+							</div>
+						</div>
+
+						<div class="row inner">
+							<div class="col col-checkbox" id="col-checkbox">
+								<label for="box-1" class="box-label">Okudum onaylıyorum*</label>
+								<input type="checkbox" id="box-1" class="textbox" required />
+								<label for="box-2" class="box-label"
+									>Bültene abone olmak istiyorum</label
+								>
+
+								<input
+									v-model="abone"
+									type="checkbox"
+									id="box-2"
+									class="textbox" />
+								<i class="yildiz">*Doldurulması zorunlu alanlar</i>
+							</div>
+						</div>
+
+						<div class="row inner">
+							<div class="col button">
+								<input
+									type="submit"
+									value="KAYDET"
+									class="btn btn-primary"
+									role="button"
+									aria-disabled="true" />
+							</div>
+						</div>
+					</div>
+
+					<div class="bar-2"></div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<p id="form-name"></p>
+					</div>
+				</div>
+			</form>
+
+			<div class="accordion accordion-flush" id="accordionFlushExample">
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="flush-headingOne">
+						<button
+							class="accordion-button collapsed"
+							type="button"
+							data-bs-toggle="collapse"
+							data-bs-target="#flush-collapseOne"
+							aria-expanded="false"
+							aria-controls="flush-collapseOne">
+							Veriler
+						</button>
+					</h2>
+					<div
+						id="flush-collapseOne"
+						class="accordion-collapse collapse"
+						aria-labelledby="flush-headingOne"
+						data-bs-parent="#accordionFlushExample">
+						<div class="accordion-body">
+							<table id="tbl">
+								<tr>
+									<th>No</th>
+									<th>Ad</th>
+									<th>Soyad</th>
+									<th>Telefon</th>
+									<th>E-posta</th>
+									<th>İl</th>
+									<th>Doğum Tarihi</th>
+									<th>Cinsiyet</th>
+									<th>Adres</th>
+									<th>Web site</th>
+									<th>Abone mi</th>
+									<th>Action</th>
+								</tr>
+								<tr v-for="(item, index) in dataArray" :key="index">
+									<td>
+										<p class="no">{{index+1}}</p>
+									</td>
+									<td>
+										<input
+											type="text"
+											class="tbl-textbox"
+											v-bind:disabled="item.isDisabled"
+											v-model="item.ad" />
+									</td>
+									<td>
+										<input
+											type="text"
+											class="tbl-textbox"
+											v-bind:disabled="item.isDisabled"
+											v-model="item.soyad" />
+									</td>
+									<td>
+										<input
+											type="text"
+											class="tbl-textbox"
+											v-bind:disabled="item.isDisabled"
+											v-model="item.telefon" />
+									</td>
+									<td>
+										<input
+											type="text"
+											class="tbl-textbox"
+											v-bind:disabled="item.isDisabled"
+											v-model="item.eposta" />
+									</td>
+									<td>
+										<input
+											type="text"
+											class="tbl-textbox"
+											v-bind:disabled="item.isDisabled"
+											v-model="item.il" />
+									</td>
+									<td>
+										<input
+											type="text"
+											class="tbl-textbox"
+											v-bind:disabled="item.isDisabled"
+											v-model="item.dogum" />
+									</td>
+									<td>
+										<input
+											type="text"
+											class="tbl-textbox"
+											v-bind:disabled="item.isDisabled"
+											v-model="item.cinsiyet" />
+									</td>
+									<td>
+										<input
+											type="text"
+											class="tbl-textbox"
+											v-bind:disabled="item.isDisabled"
+											v-model="item.adres" />
+									</td>
+									<td>
+										<input
+											type="text"
+											class="tbl-textbox"
+											v-bind:disabled="item.isDisabled"
+											v-model="item.website" />
+									</td>
+									<td>
+										<input
+											type="text"
+											class="tbl-textbox"
+											v-bind:disabled="item.isDisabled"
+											v-model="item.abone" />
+									</td>
+									<td>
+										<button
+											v-on:click="editButton(item)"
+											class="edit-button"
+											id="edit-button">
+											{{item.edit}}</button
+										><button
+											v-on:click="deleteRow(index)"
+											class="edit-button"
+											id="delete-button">
+											Sil
+										</button>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://cdn.cits.com.tr/lib/vue/dist/vue.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+		<script>
+			var app = new Vue({
+				el: "#appDiv",
+				data: {
+					ad: "",
+					soyad: "",
+					telefon: "",
+					eposta: "",
+					dogum: "",
+					il: "",
+					cinsiyet: "",
+					adres: "",
+					website: "",
+					abone: false,
+					data1: {},
+					dataArray: [],
+				},
+				methods: {
+					form: function () {
+						var th = this;
+						th.data1 = {
+							isDisabled: true,
+							ad: th.ad,
+							soyad: th.soyad,
+							telefon: th.telefon,
+							eposta: th.eposta,
+							dogum: th.dogum,
+							il: th.il,
+							cinsiyet: th.cinsiyet,
+							adres: th.adres,
+							website: th.website,
+							abone: th.abone ? "Evet" : "Hayır",
+							edit: "Düzenle",
+						};
+
+						th.dataArray.push(th.data1);
+
+						var bb = th.dataArray;
+						localStorage.setItem("veri", JSON.stringify(bb));
+
+						var a = JSON.parse(localStorage.getItem("veri"));
+					},
+					editButton: function (item) {
+						var th = this;
+						item.isDisabled = !item.isDisabled;
+
+						item.edit = item.isDisabled ? "Düzenle" : "Tamamla";
+					},
+
+					deleteRow: function (index) {
+						var th = this;
+						if (confirm("Emin misin?") == true) {
+							th.dataArray.splice(index, 1);
+						}
+					},
+				},
+				mounted() {
+					console.log("Say hello acim");
+					var th = this;
+				},
+			});
+		</script>
+
+		<script src="./lib/js/bootstrap.js"></script>
+		<script src="index.js"></script>
+	</body>
+</html>
