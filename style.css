@@ -1,21 +1,74 @@
 body{
     background-color: #a7d7c5 !important;
-    height: 37rem;
-    width: 100%;
+    height: 90vh;
+    width: 100vh;
     background-repeat: no-repeat;
 }
-/*
-@media screen and (max-width:1000px){
-    .container{
-        margin-left: 20px !important;
-        margin-right: 20px !important;
-    }
+
+#tbl{
+    background-color: #f6fbf9 !important;
 }
-*/
+.table.b-table>tbody>.table-active,
+.table.b-table>tbody>.table-active>td,
+.table.b-table>tbody>.table-active>th {
+    background-color: rgb(201, 201, 201) !important;
+}
+
+.table{
+    width: 70rem !important;
+    margin: auto !important;
+}
+
+#tbl th{
+    background-color: #a7d7c5 !important;
+    width: 5rem;
+    height: 1rem;
+}
+
+.btn-sm{
+    background-color: #3A4454 !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+        0 1px 2px rgba(0, 0, 0, 0.24);;
+}
+
+.page-link.active,
+.active>.page-link{
+    background-color: #3A4454 !important;
+    border-color: #3A4454 !important;
+    color: white !important;
+}
+.modal-content{
+    overflow-y: scroll;
+    height: 34rem;
+    border-radius: 16px !important;
+}
+
+.modal-body{
+    margin-top:-60px;
+}
+.close {
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
+    z-index: 10;
+    background-color: transparent;
+    border: none;
+}
+.page-link{
+    color: #3A4454 !important;
+}
+
+
 .box{
     position: fixed;
     height: 35vmax;
     width: 35vmax;
+    top: 0;
+    left: 0;
     background-color: #C1E3D6;
     margin: -14rem -7rem;
     transform: rotate(45deg);
@@ -82,7 +135,7 @@ input[type="radio"]{
 }
 
 
-.btn-primary:hover{
+.btn-primary-kydt:hover{
     background-color: #95d1ba !important;
     border: 1px solid #95d1ba !important;
     
@@ -94,9 +147,12 @@ input[type="radio"]{
     border-radius: 5px;
 }
 
-.btn-primary{
+
+
+.btn-primary-kydt{
     background-color: #84C7AE !important;
     border-color: #84C7AE !important;
+    color: white !important;
     border-radius: 23rem !important;
     width: 10rem;
     height: 3rem;
@@ -113,6 +169,13 @@ input[type="radio"]{
     border-radius: 1.5rem;
     background: #F6FBF9;
     box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 30%);
+    display: none;
+}
+
+
+.add-btn{
+    height: 2rem;
+    width: 5rem;
 }
 
 input[type="password"]:invalid{
@@ -286,11 +349,26 @@ input[type="date"]:invalid{
     font-size: 14px;
 }
 
+.mt-3{
+    margin: auto;
+}
+
+.bottom-buttons{
+    display: flex;
+    gap: 1rem;
+}
+
+
 
 
 #tbl{
-    border-collapse: collapse;
-    width: 100%;
+    background-color: #f7f7f7 !important;
+        border-radius: 18px;
+        padding: 1rem;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0px 2px 1px 0px rgb(0 0 0 / 11%);
+        margin: auto;
+        width: 73rem !important;
+        height: 33rem;
 }
 
 #tbl td, #tbl th{
