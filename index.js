@@ -8,7 +8,8 @@ var app = new Vue({
 		eposta: "",
 		dogum: "",
 		il: "",
-		sifre:"",
+		sifre: "",
+		sifre2:"",
 		cinsiyet: "",
 		adres: "",
 		website: "",
@@ -83,6 +84,7 @@ var app = new Vue({
 			else {
 				th.id = th.ay.id + 1;
 			}
+
 			th.data1 = {
 				id: th.id,
 				isDisabled: true,
@@ -92,7 +94,8 @@ var app = new Vue({
 				eposta: th.eposta,
 				dogum: th.dogum,
 				il: th.il,
-				sifre:th.sifre,
+				sifre: th.sifre,
+				sifre2:th.sifre2,
 				cinsiyet: th.cinsiyet,
 				adres: th.adres,
 				website: th.website,
@@ -101,7 +104,7 @@ var app = new Vue({
 				edit: "Düzenle",
 				
 			};
-
+			
 			var localStorageData =JSON.parse(localStorage.getItem("dataArray"))
 			localStorageData.push(th.data1)
 			
@@ -116,7 +119,8 @@ var app = new Vue({
 			th.eposta= "";
 			th.dogum= "";
 			th.il= "";
-			th.sifre="";
+			th.sifre = "";
+			th.sifre2 = "";
 			th.cinsiyet= "";
 			th.adres= "";
 			th.website = "";
@@ -128,15 +132,21 @@ var app = new Vue({
 			th.tblDisplay = th.isDisplay ? "block" : "none";
 		},
 
+		confirmPassword: function () {
+			var th = this;
+			if (th.sifre == th.sifre2) {
+				return this.form();
+			}
+			else {
+				alert("Şifreler eşleşmiyor");
+			}
+		},
+
 		editButton: function () {
 			var th = this;
-			let currentData = th.localData.find(x => x.id == idList[0]);
+			let currentData = th.localData.find(x => x.id == idList[0]); 
 			th.model = currentData;
-			console.log("currentData.abone:",currentData.abone);
 			th.checkAbone = currentData.abone=="Evet" ? true : false;
-			// th.abone= th.abone ? "Evet" : "Hayır"
-			// currentData.abone = th.abone ? "Evet" : "Hayır";
-			
 		},
 
 		deleteRow: function () {
@@ -144,13 +154,14 @@ var app = new Vue({
 			if (confirm("Emin misin?") == true) {
 
 				th.localData = th.localData.filter(function (item) {
-					return !idList.includes(item.id)
+					return !idList.includes(item.id)  
 				});
 				localStorage.removeItem('dataArray')
 
 				localStorage.setItem('dataArray', JSON.stringify(th.localData));
 			}
 		},
+
 		addButton: function () {
 			var th = this;
 			
@@ -174,8 +185,6 @@ var app = new Vue({
 
 		aboneFunc: function () {
 			th.checkAbone = !th.checkAbone;
-			console.log(th.abone, "checkAbone:", th.checkAbone);
-
 			th.model.abone= th.checkAbone == true ? "Evet" : "Hayır";
 		},
 
@@ -184,8 +193,8 @@ var app = new Vue({
 			var th = this;
 			th.abone= th.abone ? "Evet" : "Hayır"
 			localStorage.removeItem('dataArray')
-
 			localStorage.setItem('dataArray', JSON.stringify(th.localData));
+
 			th.$refs['my-modal'].hide()
 		},
 
@@ -217,7 +226,6 @@ var app = new Vue({
       	clearSelected() {
       	  this.$refs.selectableTable.clearSelected()
 		},
-			
 		rowSelected() {
 			th = this;
 			var gridInst = th.$refs.selectableTable;
@@ -228,16 +236,13 @@ var app = new Vue({
 	},
 
 	computed: {
-		rows() {
+		rows() { //seçilen rowların sayısını buluyor
 			var th = this;
 			return th.localData.length;
 		},
-
 	},
 
-
 	mounted() {
-		console.log("Say hello acim");
 		var th = this;
 		th.pageLoad();
 		

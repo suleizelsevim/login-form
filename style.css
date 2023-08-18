@@ -7,12 +7,21 @@ body{
 
 #tbl{
     background-color: #f6fbf9 !important;
+    max-height: 87vh;
+    max-width: 96vw;
+        
 }
 .table.b-table>tbody>.table-active,
 .table.b-table>tbody>.table-active>td,
 .table.b-table>tbody>.table-active>th {
     background-color: rgb(201, 201, 201) !important;
 }
+
+#tbl th{
+    width: 10rem !important;
+}
+
+
 
 .table{
     width: 70rem !important;
@@ -193,6 +202,16 @@ input[type="password"]:invalid{
     align-content: center;
 }
 
+.outer-2 {
+    display: flex;
+    flex-wrap: nowrap !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    margin-top: 3rem !important;
+    height: 80rem;
+    align-content: center;
+}
+
 .inner{
     display: flex;
     flex-wrap: wrap;
@@ -270,6 +289,10 @@ input[type="password"]:invalid{
 #file{
     opacity: 0;
     
+}
+
+.btn{
+    border-radius: 7px !important;
 }
 
 #img-button{
